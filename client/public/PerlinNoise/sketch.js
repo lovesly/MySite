@@ -20,12 +20,12 @@ function setup() {
     // test event inside p5.js function
     // works, nice.
     // another thought, setInterval, add an animation
-    console.log(document.readyState);
-    document.getElementById("reset").addEventListener("click", function(event) {
-        console.log('before', particles.length);
-        clear();
-        console.log('after', particles.length);
-    }, false);
+    // console.log(document.readyState);
+    // document.getElementById("reset").addEventListener("click", function(event) {
+    //     console.log('before', particles.length);
+    //     clear();
+    //     console.log('after', particles.length);
+    // }, false);
 
     //es6 
     //cache array for vectors at each position
@@ -34,7 +34,7 @@ function setup() {
     //interesting, adding 1000 particles doesn't slow down my machine
     //looks like vector calculation for perlin noise at each position 
     //eat too much GPU
-    for (var i = 0; i < 3000; i++) {
+    for (var i = 0; i < 5000; i++) {
         particles.push(new Particle());
     }
     background(255);
@@ -86,3 +86,4 @@ function windowResized() {
     }
 }
 
+// maybe I should add a cancel function
