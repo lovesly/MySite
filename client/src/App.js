@@ -71,7 +71,7 @@ class App extends Component {
                             <Route path="/not-found" component={ NotFound } exact={ true } />
                         </div>
                         <Footer />
-                        <TestIframe />
+                        {/* <TestIframe /> */}
                     </div>
                 </BrowserRouter>
             </Provider>
