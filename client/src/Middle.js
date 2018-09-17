@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Loader from './components/layout/Loader';
 import App from './App';
@@ -22,13 +22,17 @@ class TestMiddle extends Component {
     }
 
     componentDidMount() {
+        // ok, stupid, stupid, stupid
+        // when this window.onload is triggered(only once), it's actually working on 
+        // Loader component. Not the <App />
         if (document.readyState === 4) {
             console.log("already triggered!");
             this._init();
         } else {
-            document.addEventListener("DOMContentLoaded", () => {
+            window.onload = () => {
+                console.log('wtf, not waiting for the image download???');
                 this._init();
-            });
+            };
         }
     }
 
@@ -38,7 +42,9 @@ class TestMiddle extends Component {
                 transitionName="example"
                 transitionEnterTimeout={1000}
                 transitionLeaveTimeout={1000}>
-                { this.state.show ? <App key={ 'main-app' }/> : <Loader key={ 'app-loader' } /> }
+                { !this.state.show && <Loader key={ 'app-loader' } />
+                }
+                <App key={ 'main-app' }/>
             </ReactCSSTransitionGroup>
         );
     }
