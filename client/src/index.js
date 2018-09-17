@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import TestMiddle from './TestMiddle';
+import Middle from './Middle';
 
-ReactDOM.render(<TestMiddle />, document.getElementById('root'));
+ReactDOM.render(<Middle />, document.getElementById('root'));
 
 
 registerServiceWorker();

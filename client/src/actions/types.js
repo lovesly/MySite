@@ -13,3 +13,7 @@ export const GET_POST = 'GET_POST';
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const CLEAR_POST = 'CLEAR_POST';
+
+export const GET_ARTICLE = 'GET_ARTICLE';
+export const ARTICLE_LOADING = 'ARTICLE_LOADING';
+export const GET_ALL_ARTICLES = 'GET_ALL_ARTICLES';

@@ -10,6 +10,7 @@ class TestMiddle extends Component {
     constructor(props) {
         super(props);
         this.state = { show: false };
+        // this._init = this._init.bind(this);
     }
 
     _init() {
@@ -30,14 +31,14 @@ class TestMiddle extends Component {
             });
         }
     }
-    
+
     render() {
         return (
             <ReactCSSTransitionGroup
                 transitionName="example"
                 transitionEnterTimeout={1000}
                 transitionLeaveTimeout={1000}>
-                { this.state.show ? <App key={ 'my-key' }/> : <Loader key={ 'my-loader' } /> }
+                { this.state.show ? <App key={ 'main-app' }/> : <Loader key={ 'app-loader' } /> }
             </ReactCSSTransitionGroup>
         );
     }

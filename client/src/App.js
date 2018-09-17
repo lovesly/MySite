@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 
@@ -14,6 +14,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import TestIframe from './components/layout/TestIframe';
 import Landing from './components/layout/Landing';
+import StarWar from './components/layout/StarWar-demo';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
@@ -50,9 +51,16 @@ class App extends Component {
         return (
             <Provider store={ store }>
                 <BrowserRouter>
+                    
                     <div className="App">
                         <Navbar />
-                        <Route path="/" component={ Landing } exact={ true } />
+                        <Switch>
+                            <Route path="/main" component={ StarWar } />
+                            <Route exact path="/" component={() => <Redirect to="/main" />}/>
+                            {/* <Route path="*" component={() => <Redirect to="/main"/>} /> */}
+                        </Switch>
+                        
+                        {/* <Route path="/" component={ Landing } exact={ true } /> */}
                         <div className="container">
                             <Route path="/register" component={ Register } exact={ true } />
                             <Route path="/login" component={ Login } exact={ true } />
@@ -71,6 +79,7 @@ class App extends Component {
                             <Route path="/not-found" component={ NotFound } exact={ true } />
                         </div>
                         <Footer />
+                        {/* p5.js perlin noise */}
                         {/* <TestIframe /> */}
                     </div>
                 </BrowserRouter>

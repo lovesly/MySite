@@ -43,3 +43,19 @@ img {
   margin-right: 5px;
   vertical-align: bottom;
 }
+
+nav#navbar {
+  background-color: rgba(57, 40, 74, 0.7);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  transition: all 500ms ease-in-out;
+  top: -100%;
+}
+nav#navbar.is-showing {
+  top: 0;
+}
+#nav-title {
+  padding-top: 0;
+  font-size: 1.5rem;
+}
