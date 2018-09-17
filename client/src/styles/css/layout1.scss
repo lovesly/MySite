@@ -50,8 +50,15 @@ img {
 	height: 50rem;
 	z-index: 2;
 	background: {
-		// image: url('../images/bird-bg.jpg');
-		image: url('/images/starWar/bg2.jpg');
+		// image: url('/images/starWar/bg2.jpg');
+		// full size image cdn
+		// <img src="https://s1.ax1x.com/2018/09/17/iZ6hNt.jpg" alt="iZ6hNt.jpg" border="0">
+		// <img src="https://s1.ax1x.com/2018/09/17/iZ644P.png" alt="iZ644P.png" border="0">
+
+		// weibo
+		// image: url('https://s1.ax1x.com/2018/09/17/iZ6hNt.jpg');
+		// good lord, it does support mw2048 wtf.
+		image: url('http://wx3.sinaimg.cn/mw2048/005SuTQtly1fvcvzzgnegj311s0sg7cx.jpg');
 		size: cover;
 		position: top center;
 		attachment: fixed;
@@ -92,7 +99,9 @@ img {
 	width: 380px;
 	height: 440px;
 	background: {
-		image: url('/images/starWar/ss2.png');
+		// image: url('/images/starWar/ss2.png');
+		// apparently sina doesn't support png. 
+		image: url('https://s1.ax1x.com/2018/09/17/iZ644P.png');
 		repeat: no-repeat;
 		position: top left;
 		size: contain;

@@ -446,7 +446,7 @@ img {
   position: relative;
   height: 50rem;
   z-index: 2;
-  background-image: url("/images/starWar/bg2.jpg");
+  background-image: url("http://wx3.sinaimg.cn/mw2048/005SuTQtly1fvcvzzgnegj311s0sg7cx.jpg");
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
@@ -478,7 +478,7 @@ img {
 .back-bird {
   width: 380px;
   height: 440px;
-  background-image: url("/images/starWar/ss2.png");
+  background-image: url("https://s1.ax1x.com/2018/09/17/iZ644P.png");
   background-repeat: no-repeat;
   background-position: top left;
   background-size: contain;
