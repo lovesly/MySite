@@ -8,6 +8,7 @@ import Main from '../site-main/Main';
 import Field from '../site-article/Field';
 import Article from '../site-article/Article';
 import Hobby from '../site-article/Hobby';
+import StarWarHeader from '../site-main/StarWarHeader';
 
 class StarWar extends Component {
 
@@ -26,17 +27,14 @@ class StarWar extends Component {
         });
         
         if (this.props.auth.isAuthenticated) {
-            this.props.history.push('/main');
+            // this.props.history.push('/main');
         }
     }
     
     render() {
         return (
             <div>
-                <header className="bird-box">
-                    <div className="back-bird"></div>
-                    <div className="logo"></div>
-                </header>
+                <StarWarHeader />
                 <Route path="/main/hobby" render={() => <h3>To Do, split effect</h3>} exact={ true }/>
                 <section className="content">
                     <Switch>
@@ -63,33 +61,18 @@ const mapStateToProps = (state) => ({
 });
 
 // where should I put this?
+// since we have multiple effects need to listen to scroll event.
+// it's better to separate the function into different eventlisteners
+/**
+ *  1. starwar bg
+ *  2. large window
+ *  3. blog post
+ *  4. arrow
+ */
+
 $(window).scroll(function(event) {
     if ($('article#main-article').length === 0) return;
     const wScroll = $(this).scrollTop();
-
-    $('.logo').css({
-        'transform': `translate(0px, ${ wScroll/2 }%)`
-    });
-
-    $('.back-bird').css({
-        'transform': `translate(${ wScroll/6 }%, ${ wScroll/3 }%) scale(${ 0.5 + wScroll/700 })`
-    });
-    
-    $('.fore-bird').css({
-        'transform': `translate(0px, -${ wScroll/32 }%)`
-    });
-
-    if (wScroll > $('section.content').offset().top) {
-        if ($('nav#navbar').hasClass('is-showing')) {
-            // remove
-            $('nav#navbar').removeClass('is-showing');
-        }
-    } else {
-        if (!$('nav#navbar').hasClass('is-showing')) {
-            $('nav#navbar').addClass('is-showing');
-        }
-    }
-
     // console.log(wScroll, $('.clothes-pics').offset().top);
     // triggered when scroll to the middle of the borwser window.
     let wHeight = $(window).height();

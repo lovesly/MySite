@@ -1,5 +1,42 @@
 import React from 'react';
 
+const handleClick = function(e) {
+	e.preventDefault();
+	// this is undefined, why?
+	console.log(this);
+	const emailInput = document.querySelector('#email-input');
+	emailInput.placeholder = placeholder_msg[test_counter()];
+	if (emailInput.placeholder === '') {
+		emailInput.value = 'zzhlovesly@outlook.com';
+		// copy the email ? 
+	}
+}
+
+const handleFacebook = function(e) {
+	e.preventDefault();
+	document.querySelector('a#facebook-link').innerHTML = '不玩 Facebook';
+}
+ 
+// couter with closure
+const test_counter = function() {
+	let counter = -1;
+	return function() {
+		if (counter < 3) {
+			counter++;
+		} 
+		return counter;
+	}
+}();
+
+const placeholder_msg = [
+	'别点了, 功能还没做呢',
+	'还点',
+	'再点网站就崩溃了',
+	''
+];
+
+
+
 export default () => {
 	return (
 	// <footer className="bg-dark text-white mt-5 p-4 text-center">
@@ -9,21 +46,17 @@ export default () => {
 		<div className="container footer-stuff">
 			<div className="row">
 				<div className="col-sm-3">
-					<strong>FIND US ON</strong>
+					<strong>FIND ME ON</strong>
 					<ul>
-						<li><a href="">Facebook</a></li>
-						<li><a href="">Twitter</a></li>
-						<li><a href="">Instagram</a></li>
-						<li><a href="">Pinterest</a></li>
+						<li><a href="#" id="facebook-link" onClick={(e) => handleFacebook(e)}>Facebook</a></li>
+						<li>Copyright &copy; {new Date().getFullYear()} ZZ</li>
 					</ul>
 				</div>
 				<div className="col-sm-3">
-					<strong>OTHER SHOPS</strong>
+					<strong>项目</strong>
 					<ul>
-						<li><a href="">Red Robin</a></li>
-						<li><a href="">Emerald Eagle</a></li>
-						<li><a href="">Crimson Crane</a></li>
-						<li><a href="">Auburn Abbot</a></li>
+						<li>Oracle</li>
+						<li><a href="https://www.oracle.com/industries/health-sciences/clinical-one.html" target="_Blank">Clinical One</a></li>
 					</ul>
 				</div>
 				<div className="col-sm-6">
@@ -33,9 +66,9 @@ export default () => {
 					</p>
 					<form action="" className="">
 						<div className="input-group mb-3">
-							<input type="email" className="form-control" placeholder="Your Email" aria-label="Your Email"/>
+							<input id="email-input" type="email" className="form-control" placeholder="Your Email" aria-label="Your Email"/>
 							<div className="input-group-append">
-								<button className="btn btn-outline-secondary" type="submit" id="button-submit">Submit</button>
+								<button className="btn btn-outline-secondary" type="submit" id="button-submit" onClick={(e) => handleClick(e)}>Submit</button>
 							</div>
 						</div>
 					</form>

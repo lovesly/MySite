@@ -5,18 +5,21 @@ const Posts = () => {
     // hard coded for now
     const dataset = [
         {
+            index: 1,
             articleId: '5b9dea024a68a8840e98750c',
             title: 'Post Title 1',
             desc: 'some text',
             url: './images/posts/one.jpg',
         }, 
         {
+            index: 2,
             articleId: '5b9debd8b4d06b84649fc7c3',
             title: 'Post Title 2',
             desc: 'some text',
             url: './images/posts/two.jpg',
         },
         {
+            index: 3,
             articleId: '3',
             title: 'Post Title 3',
             desc: 'some text',

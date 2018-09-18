@@ -1,0 +1,39 @@
+前一阵子看设计模式的时候， 在书里看见这么一段话， 总结 revealing module 模式
+
+缺点：
+    如果一个私有方法引用了一个公有的方法，如果补丁是必要的则公有方法是不可以被重写的。这是因为私有方法将继续引用私有的实现并且模式不应该应用于私有成员，只适用于私有函数。
+
+    引用私有变量的公有对象成员也服从上面的无补丁规则。
+
+    因此，用显示模块模式创建的模块，可能比用传统的模块模式创建的模块更脆弱，所以在使用过程中应多加小心。
+
+一时觉得有些拗口， 于是去百度一下看看有没有更好的解释。 结果不出所料， 前几页几十个博客， 观点竟然出奇的一致， 好一点的还恪守原则， 照着书上写， 剩下的就有意思了， 重新组织一下语言， 用中文把中文翻译一遍， 然后标上 “博客原创， 转载注明” 之类的。 这种事情不是个例， 每次我想搜点东西， 就见到一堆人抄书， 客气一点的加上“**学习笔记”， 其他的都算原创。 最好玩的是抄书的还要互相抄， 你抄我， 我抄你， 也不知道到底是谁二次原创的， 这时候就得靠外貌取胜， 谁的 ide 主题配色好看， 谁看着就像正版。 大批低质量技术文章挤满搜索前几页， 眼都看花了。 CSDN 和博客园好像不太管这些， 好在目前还有几个网站水准保持得可以， 思否、掘进和简书上有不少质量上乘的翻译/原创文章， 万一 Stackoverflow 太卡， 可以替代一下， 实在不行去知乎搜搜也行， 做着早日成为大V美梦的知乎er， 为了赞和感谢， 宁可不写， 也不会弄点垃圾文章留下黑点。 
+
+言归正传， 我在 Stackoverflow 上找到了一个解释。 
+    var revealed = (function() {      
+        function foo() {
+            return baz();
+        }
+
+        function bar() {
+            return "I am the original bar!";
+        }
+
+        // private function always calls bar because it's in the closure
+        // and it can't see the "instance" variable
+        function baz() {
+            return bar();
+        }
+
+        return { foo : foo, bar : bar }
+    })();
+
+    var child = Object.create(revealed);
+
+    child.bar = function() {
+        return "I am the new bar!";
+    }
+
+    // we want this to call the new bar but it doesn't
+    console.log(child.foo()); // I am the original bar!
+严格来说也不算什么大缺点， 因为 revealing module 返回的是一个引用， 如果在外部覆盖了某个方法， 其他方法内部的引用是没有改变的。 不过实际工作里， 你引入了一个模块， 一般情况下也不会有非要覆盖其中某个方法的需求。 我是从来没有遇到过。 书里的表述实在不怎么好， 也可能是我语文不行。 
