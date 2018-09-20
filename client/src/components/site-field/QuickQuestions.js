@@ -42,10 +42,12 @@ const QuickQuestions = () => {
     }, {
         question: '粥',
         answer: '原味',
-    }, {
-        question: '女朋友和你妈掉水里了先救谁',
-        answer: '谁问救谁， 两个一起问我选择死亡',
-    }, {
+    }, 
+    // {
+    //     question: '女朋友和你妈掉水里了先救谁',
+    //     answer: '谁问救谁， 两个一起问我选择死亡',
+    // }, 
+    {
         question: '保大的保小的',
         answer: '大的',
     }];
