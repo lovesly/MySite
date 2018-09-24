@@ -5,7 +5,7 @@ export default () => {
     return (
             <div id="my-canvas" style={{ width: '100%', height:'600px' }}>
                 <iframe 
-                    src="/indexTest.html" 
+                    src="https://my-site-zz.herokuapp.com/indexTest.html" 
                     width="100%" 
                     height="100%" 
                     scrolling="no" 
@@ -14,7 +14,6 @@ export default () => {
                     frameBorder="0"
                     allowtransparency="true"
                 />
-                <img src="/WOW2.jpeg" className="article-img" alt="Not Found"/>
             </div> 
     );
 }
