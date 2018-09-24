@@ -10,6 +10,7 @@ import $ from 'jquery';
 class Main extends Component {
 
     componentDidMount() {
+        console.log('loaded');
         document.querySelector('#my-btn').addEventListener('click', function(e) {
             e.preventDefault();
             $('.triBlock').each(function(index) {
