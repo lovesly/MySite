@@ -25,7 +25,22 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Article.findById(req.params.id)
         .then(article => {
-            res.json(article)
+            res.json(article);
+        })
+        .catch(err => res.status(404).json({ err }));
+});
+
+// @route GET api/articles/:title
+// @desc Get article by title
+// @access Public
+router.get('/title/:title', (req, res) => {
+    // find by title?
+    Article.findOne({ title: req.params.title })
+        .then(article => {
+            if (!article) {
+                throw new Error();
+            }
+            res.json(article);
         })
         .catch(err => res.status(404).json({ err }));
 });
@@ -54,28 +69,12 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 // @access Private
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     const errors = {};
-    // we can use user model to do thist right? 
-    // why do we need Profile model????
-    Profile.findOne({ user: req.user.id })
-        .then(profile => {
-            if (!profile) {
-                // so right now, if the user cancel his account, nobody would be able to 
-                // remove his posts.
-                errors.noprofile = 'User profile not found';
-                return res.status(404).json(errors);
-            } else {
-                Post.findById(req.params.id)
-                    .then(post => {
-                        if (post.user.toString() !== req.user.id) {
-                            errors.post = 'User not authorized';
-                            return res.status(401).json(errors);
-                        } else {
-                            post.remove().then((() => res.json({ success: true })));
-                        }
-                    })
-                    .catch(err => res.status(404).json({ err }));
-            }
-        });
+    Article.findOneAndRemove({ _id: req.params.id })
+        .then((res) => {
+            console.log(res);
+            res.json(res);
+        })
+        .catch(err => res.status(404).json({ err }));;
 });
 
 

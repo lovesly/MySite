@@ -1,14 +1,20 @@
 import React from 'react';
 
-const handleClick = function(e) {
+let handleClick = function(e) {
 	e.preventDefault();
-	// this is undefined, why?
-	console.log(this);
 	const emailInput = document.querySelector('#email-input');
+	emailInput.value = "";
 	emailInput.placeholder = placeholder_msg[test_counter()];
 	if (emailInput.placeholder === '') {
 		emailInput.value = 'zzhlovesly@outlook.com';
-		// copy the email ? 
+		document.querySelector('#button-submit').innerHTML = "Copy";
+		document.querySelector('#sign-up-span').innerHTML = "要不麻烦你手动联系， 让我思考一下怎么设计这里的功能";
+		
+		handleClick = function(e) {
+			e.preventDefault();
+			document.querySelector('#email-input').select();
+			document.execCommand("copy");
+		}
 	}
 }
 
@@ -39,30 +45,28 @@ const placeholder_msg = [
 
 export default () => {
 	return (
-	// <footer className="bg-dark text-white mt-5 p-4 text-center">
-	//     Copyright &copy; {new Date().getFullYear()} ZZ
-	// </footer>
 	<footer>
 		<div className="container footer-stuff">
-			<div className="row">
-				<div className="col-sm-3">
+				<div className="" id="footer-1">
 					<strong>FIND ME ON</strong>
 					<ul>
 						<li><a href="#" id="facebook-link" onClick={(e) => handleFacebook(e)}>Facebook</a></li>
-						<li>Copyright &copy; {new Date().getFullYear()} ZZ</li>
 					</ul>
 				</div>
-				<div className="col-sm-3">
+				<div id="footer-">
+					<p>Copyright &copy; {new Date().getFullYear()} ZZ</p>
+				</div>
+				<div className="" id="footer-2">
 					<strong>项目</strong>
 					<ul>
 						<li>Oracle</li>
 						<li><a href="https://www.oracle.com/industries/health-sciences/clinical-one.html" target="_Blank">Clinical One</a></li>
 					</ul>
 				</div>
-				<div className="col-sm-6">
+				<div className="" id="footer-3">
 					<p>
-						<strong>Sign Up for the newsletter </strong> 
-						consectetur adipisicing elit. Quae consequatur voluptatibus  recusandae. Qui, praesentium hic?
+						<strong>加强联络 </strong>
+						<span id="sign-up-span"></span>
 					</p>
 					<form action="" className="">
 						<div className="input-group mb-3">
@@ -73,7 +77,6 @@ export default () => {
 						</div>
 					</form>
 				</div>
-			</div>
 		</div>
 	</footer>
 	);

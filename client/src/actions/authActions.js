@@ -13,7 +13,6 @@ export const startRegisterUser = (userData, history) => {
                 history.push('/login');
             })
             .catch(err => {
-                console.log(err);
                 // bad design, if server side error happens, the reducer won't be able
                 // to handle it. 
                 dispatch({

@@ -28,14 +28,32 @@ export const getArticleById = (id) => {
         dispatch(setProfileLoading());
         axios.get(`/api/articles/${id}`)
             .then(res => {
-                console.log('found');
                 dispatch({
                     type: GET_ARTICLE,
                     payload: res.data,
                 });
             })
             .catch(err => {
-                console.log(err, 'not found');
+                dispatch({
+                    type: GET_ARTICLE,
+                    payload: { msg: 'NOT FOUND' },
+                });
+            });
+    };
+};
+
+export const getArticleByTitle = (title) => {
+    return (dispatch) => {
+        // could reuse this
+        dispatch(setProfileLoading());
+        axios.get(`/api/articles/title/${title}`)
+            .then(res => {
+                dispatch({
+                    type: GET_ARTICLE,
+                    payload: res.data,
+                });
+            })
+            .catch(err => {
                 dispatch({
                     type: GET_ARTICLE,
                     payload: { msg: 'NOT FOUND' },
@@ -56,7 +74,6 @@ export const getArticles = () => {
                 });
             })
             .catch(err => {
-                console.log(err);
                 dispatch({
                     type: GET_ALL_ARTICLES,
                     payload: null,

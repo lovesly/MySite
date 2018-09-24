@@ -15,7 +15,6 @@ class Main extends Component {
             $('.triBlock').each(function(index) {
                 const self = this;
                 $(self).css({ 'background-image': `url('../../images/starWar/tri${index}.svg')`});
-                console.log(this);
                 setTimeout(function() {
                     // this refers to window.
                     $(self).addClass('is-showing');

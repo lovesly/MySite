@@ -18,6 +18,10 @@ const ArticleSchema = new Schema({
     avatar: {
         type: String
     },
+    Detial: {
+        title: String,
+        Introduction: String,
+    },
     likes: [
         {
             user: {

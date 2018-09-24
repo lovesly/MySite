@@ -438,6 +438,17 @@ hr {
   margin: 0 auto;
 }
 
+#tmp-container {
+  margin-top: 100px;
+  padding: 30px 30px 100px 30px;
+  box-sizing: border-box;
+  background-color: #5b4069f5;
+  max-width: 900px;
+  /* margin: 0 auto; */
+  text-align: center;
+  color: #dadada;
+}
+
 img {
   max-width: 100%;
 }
@@ -478,7 +489,7 @@ img {
 .back-bird {
   width: 380px;
   height: 440px;
-  background-image: url("https://s1.ax1x.com/2018/09/17/iZ644P.png");
+  background-image: url("http://i2.bvimg.com/662373/40e8efc2ef961127.png");
   background-repeat: no-repeat;
   background-position: top left;
   background-size: contain;
@@ -530,7 +541,7 @@ img {
 .large-window {
   width: 640px;
   height: 640px;
-  background-image: url("/images/starWar/bea3.jpg");
+  background-image: url("/images/starWar/map.jpg");
   background-position: top center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -614,6 +625,22 @@ footer {
   bottom: 0;
   width: 100%;
   z-index: 1;
+}
+footer .footer-stuff {
+  display: grid;
+  grid-template: "a b c" "d d c"/1fr 1fr 2fr;
+}
+footer .footer-stuff #footer-1 {
+  grid-area: a;
+}
+footer .footer-stuff #footer-2 {
+  grid-area: b;
+}
+footer .footer-stuff #footer-3 {
+  grid-area: c;
+}
+footer .footer-stuff #footer-4 {
+  grid-area: d;
 }
 footer ul {
   list-style: none;
@@ -859,30 +886,41 @@ div#scrollTop:hover {
   display: block;
 }
 
-.question-container h6 {
+article.site-field .question-container h6 {
   font-weight: bold;
 }
-.question-container p {
+article.site-field .question-container p {
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: #2b2f34;
   font-style: italic;
 }
-.question-container .alert-success {
+article.site-field .question-container .alert-success {
   background-color: #a8a7c4;
   color: #1d1f21;
   border-color: #d0cbc9;
 }
-.question-container .alert-success hr {
+article.site-field .question-container .alert-success hr {
   border-top-color: #1d1f21;
 }
 
-article.site-article p {
+article.site-article p, article.site-field p, article.site-hobby p {
   line-height: 2rem;
   font-size: 1.25rem;
-  color: #e9ebef;
+  color: #c7ccd5;
   text-indent: 2.5rem;
 }
-article.site-article div.paragraph {
+article.site-article div.paragraph, article.site-field div.paragraph, article.site-hobby div.paragraph {
   text-align: left;
+}
+
+.article-img-box {
+  text-align: center;
+}
+
+.article-img {
+  width: 200px;
+  height: 200px;
 }
 
 div.file-loader {
@@ -927,6 +965,17 @@ div.file-loader {
   100% {
     transform: rotate(360deg) scale(1);
   }
+}
+.canvas-bg {
+  border-radius: 20px;
+}
+
+.last-paragraph {
+  margin-top: 1rem;
+}
+
+article .section-intro p {
+  text-indent: unset;
 }
 
 /*# sourceMappingURL=style.css.map */

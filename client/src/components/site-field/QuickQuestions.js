@@ -2,7 +2,7 @@ import React from 'react';
 
 const QuickQuestions = () => {
     // data: [{ question: '', answer: '' }, ...]
-    const testData = 
+    const shortQuestions = 
     [{
         question: 'Windows 还是 Mac',
         answer: '真是难以抉择， 不过考虑到我的 steam 游戏库， 还是 windows 好了',
@@ -50,8 +50,14 @@ const QuickQuestions = () => {
     {
         question: '保大的保小的',
         answer: '大的',
+    }, {
+        question: '最好的语言是？',
+        answer: '... 这个 ... 中文？',
+    }, {
+        question: '你笑起来还能看见东西吗？',
+        answer: '能看见， 并不是一片黑暗， 再问要打人了',
     }];
-    const questions = testData.map(function(el, index) {
+    const questions = shortQuestions.map(function(el, index) {
         return (
             <div className="alert alert-success" role="alert" key={ index }>
                 <h6 className="alert-heading">{ el.question }</h6>

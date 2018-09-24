@@ -11,8 +11,7 @@ function setup() {
     //400 by 400 beyond my GTX1080's power
     //actually, if you don't draw those vectors
     //800 by 600 with 5000 particles is affordable. 
-    createCanvas(windowWidth, windowHeight);
-    console.log(`${windowWidth} - ${windowHeight}`);
+    createCanvas(840, 600);
     frameRate(24);
     // cols = floor(width / scl);
     // rows = floor(height / scl);
@@ -34,10 +33,10 @@ function setup() {
     //interesting, adding 1000 particles doesn't slow down my machine
     //looks like vector calculation for perlin noise at each position 
     //eat too much GPU
-    for (var i = 0; i < 5000; i++) {
+    for (var i = 0; i < 2000; i++) {
         particles.push(new Particle());
     }
-    background(255);
+    background('rgba(182,150,198,0.3)');
 }
 
 function calField() {

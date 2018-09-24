@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../../styles/css/style.css';
@@ -33,7 +33,7 @@ class StarWar extends Component {
     
     render() {
         return (
-            <div>
+            <Fragment>
                 <StarWarHeader />
                 <Route path="/main/hobby" render={() => <h3>To Do, split effect</h3>} exact={ true }/>
                 <section className="content">
@@ -42,12 +42,14 @@ class StarWar extends Component {
                         <Route path='/main/article/:id' component={ Article } exact={ true }/>
                         <Route path="/main/field/:id" component={ Field } exact={ true }/>
                         <Route path="/main/hobby" component={ Hobby }/>
+                        <Route path="*" component={() => <Redirect to="/main"/>} />
                     </Switch>
+                    {/* <Route path="/main/login" component={ Login } exact={ true } /> */}
 			    </section>
                 <div className="scroll" id="scrollTop">
                     <img className="arrow" src="/images/starWar/arrow.svg" alt=""/>
                 </div>
-            </div>
+            </Fragment>
         );
     }
 }

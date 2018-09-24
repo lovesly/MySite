@@ -39,13 +39,14 @@ class Hobby extends Component {
     }
     
     render() {
-        const sec1 = { title: 'Unique Style', content: 'some text' };
+        const sec1 = { title: '爱好', content: '于老师喜欢抽烟喝酒烫头， 我没这么高雅， 几个小爱好， 聊以卒岁。 如果早15年， 我肯定得为了作文得分写自己特别喜欢做好人好事， 拾金不昧， 扶老奶奶过马路那都是基本操作。 好在今天不用说屁话， 喜欢什么写什么。' };
         return (
-            <article id="">
+            <article id="" className="site-hobby">
                 <Link to='/main'>Back to Main</Link>
                 <SectionIntro data={ sec1 }/>
                 <MainIntro />
                 <Route path="/main/hobby/:type" component={ HobbyType } exact={ true }/>
+                <Link to='/main'>Back to Main</Link>            
             </article>
         );
     }

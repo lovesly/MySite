@@ -13,7 +13,6 @@ import store from './store';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import TestIframe from './components/layout/TestIframe';
-import Landing from './components/layout/Landing';
 import StarWar from './components/layout/StarWar-demo';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -57,13 +56,14 @@ class App extends Component {
                         <Switch>
                             <Route path="/main" component={ StarWar } />
                             <Route exact path="/" component={() => <Redirect to="/main" />}/>
+                            <Route path="/login" component={ Login } exact={ true } />
                             {/* <Route path="*" component={() => <Redirect to="/main"/>} /> */}
                         </Switch>
                         
                         {/* <Route path="/" component={ Landing } exact={ true } /> */}
                         <div className="container">
                             <Route path="/register" component={ Register } exact={ true } />
-                            <Route path="/login" component={ Login } exact={ true } />
+                            
                             {/* Does it matter to put all of them inside same switch tag? */}
                             <Switch>
                                 <PrivateRoute path="/dashboard" component={ Dashboard } exact={ true } />

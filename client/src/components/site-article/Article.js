@@ -10,10 +10,8 @@ import FileLoader from '../layout/FileLoader';
 class Article extends Component {
 
     componentDidMount() {        
-        // call the action to load the article with id or something.
-        console.log(this.props.match.params.id);
         this.props.getArticleById(this.props.match.params.id);
-        window.scrollTo(0, 200);
+        window.scrollTo(0, 300);
     }
     
     render() {
@@ -25,7 +23,6 @@ class Article extends Component {
         } else {
             if (!article.msg) {
                 // console.log(article.content.split('\n\n'));
-                
                 articleItem = article.content.split('\n\n').map(function(el, index) {
                     return <p key={ index }>{ el }</p>;
                 });

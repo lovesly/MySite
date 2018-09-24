@@ -14,7 +14,6 @@ export const getCurrentProfile = () => {
                 });
             })
             .catch(err => {
-                console.log(err);
                 dispatch({
                     type: GET_PROFILE,
                     payload: {},
@@ -34,7 +33,6 @@ export const getProfileByHandle = (handle) => {
                 });
             })
             .catch(err => {
-                console.log(err);
                 dispatch({
                     type: GET_PROFILE,
                     payload: null,
@@ -55,7 +53,6 @@ export const getProfiles = () => {
                 });
             })
             .catch(err => {
-                console.log(err);
                 dispatch({
                     type: GET_ALL_PROFILES,
                     payload: null,

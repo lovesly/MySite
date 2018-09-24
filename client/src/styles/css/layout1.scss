@@ -40,6 +40,18 @@ hr {
 	}
 }
 
+// tmp container, will refactor it after adding other modules
+#tmp-container {
+	margin-top: 100px;
+    padding: 30px 30px 100px 30px;
+    box-sizing: border-box;
+    background-color: #5b4069f5;
+    max-width: 900px;
+    /* margin: 0 auto; */
+	text-align: center;
+	color: #dadada;
+}
+
 img {
   	max-width: 100%
 }
@@ -101,8 +113,8 @@ img {
 	background: {
 		// image: url('/images/starWar/ss2.png');
 		// apparently sina doesn't support png. 
-		image: url('https://s1.ax1x.com/2018/09/17/iZ644P.png');
-		// image: url('http://i2.bvimg.com/662373/40e8efc2ef961127.png');
+		// image: url('https://s1.ax1x.com/2018/09/17/iZ644P.png');
+		image: url('http://i2.bvimg.com/662373/40e8efc2ef961127.png');
 		repeat: no-repeat;
 		position: top left;
 		size: contain;
@@ -168,7 +180,7 @@ img {
 	width: 640px;
 	height: 640px;
 	background: {
-		image: url('/images/starWar/bea3.jpg');
+		image: url('/images/starWar/map.jpg');
 		position: top center;
 		// distort 刚好发生在 repeat 图片交界的地方。 
 		repeat: no-repeat;
@@ -265,6 +277,25 @@ footer {
 	bottom: 0;
 	width: 100%;
 	z-index: 1;
+	.footer-stuff {
+		display: grid;
+		grid-template: 
+					"a b c"
+					"d d c" /1fr 1fr 2fr;
+		#footer-1 {
+			grid-area: a;
+		}
+		#footer-2 {
+			grid-area: b;
+		}
+		#footer-3 {
+			grid-area: c;
+		}
+		#footer-4 {
+			grid-area: d;
+		}
+	}
+	
 
 	ul {
 		list-style: none;
@@ -534,11 +565,13 @@ div#scrollTop {
 }
 
 // field
-.question-container {
+article.site-field .question-container {
 	h6 {
 		font-weight: bold;
 	}
 	p {
+		font-size: 1rem;
+		line-height: 1.5rem;
 		color: #2b2f34;
 		font-style: italic;
 	}
@@ -553,16 +586,26 @@ div#scrollTop {
 }
 
 // article
-article.site-article {
+// article.site-article { 
+article.site-article, article.site-field, article.site-hobby { 
 	p {
 		line-height: 2rem;
 		font-size: 1.25rem;
-		color: #e9ebef;
+		color: #c7ccd5;
 		text-indent: 2.5rem;
 	}
 	div.paragraph {
 		text-align: left;
 	}
+}
+
+.article-img-box {
+	text-align: center;
+}
+
+.article-img {
+	width: 200px;
+	height: 200px;
 }
 
 // file-loader
@@ -609,4 +652,18 @@ div.file-loader {
     100% {
         transform: rotate(360deg) scale(1);
     }
+}
+
+.canvas-bg {
+	border-radius: 20px;
+}
+
+.last-paragraph {
+	margin-top: 1rem;
+}
+
+article .section-intro {
+	p {
+		text-indent: unset;
+	}
 }

@@ -30,7 +30,6 @@ class TestMiddle extends Component {
             this._init();
         } else {
             window.onload = () => {
-                console.log('wtf, not waiting for the image download???');
                 this._init();
             };
         }
