@@ -5,7 +5,7 @@ export default () => {
     return (
             <div id="my-canvas" style={{ width: '100%', height:'600px' }}>
                 <iframe 
-                    src={ process.env.PUBLIC_URL + "/PerlinNoise/index.html"} 
+                    src={ process.env.PUBLIC_URL + "/PerlinNoise/indexTest.html"} 
                     width="100%" 
                     height="100%" 
                     scrolling="no" 
