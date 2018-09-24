@@ -8,6 +8,8 @@ import QuickQuestions from '../site-field/QuickQuestions';
 // import NormalField from '../site-field/NormalField';
 import { getArticleByTitle } from '../../actions/articleActions';
 import FileLoader from '../layout/FileLoader';
+//test
+import Frame2 from '../layout/TestIframe2';
 
 class Field extends Component {
     constructor(props) {
@@ -95,6 +97,7 @@ class Field extends Component {
                 </div>    
                 { P5 && <P5 /> }
                 { P5 &&  <div className="paragraph last-paragraph" >{ lastParagraph }</div>}
+                <Frame2 />
                 <Link to='/main'>Back to Main</Link>
             </article>
         );
