@@ -40,7 +40,7 @@ const GridLink = () => {
                             </figcaption>
             </figure>
             <div className="btn-container">
-                <button id="my-btn" type="button" className="btn btn-outline-light">Load Transmision Link</button>
+                <button id="my-btn" type="button" className="btn btn-outline-light">点我</button>
             </div>
 
             

@@ -12,6 +12,8 @@ let handleClick = function(e) {
 		
 		handleClick = function(e) {
 			e.preventDefault();
+			const emailInput = document.querySelector('#email-input');
+			emailInput.value = 'zzhlovesly@outlook.com';
 			document.querySelector('#email-input').select();
 			document.execCommand("copy");
 		}
@@ -34,6 +36,7 @@ const test_counter = function() {
 	}
 }();
 
+// could use a iterator instead. But I like arrays
 const placeholder_msg = [
 	'别点了, 功能还没做呢',
 	'还点',

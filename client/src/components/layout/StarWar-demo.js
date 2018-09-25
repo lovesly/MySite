@@ -35,7 +35,7 @@ class StarWar extends Component {
         return (
             <Fragment>
                 <StarWarHeader />
-                <Route path="/main/hobby" render={() => <h3>To Do, split effect</h3>} exact={ true }/>
+                {/* <Route path="/main/hobby" render={() => <h3>To Do, split effect</h3>} exact={ true }/> */}
                 <section className="content">
                     <Switch>
                         <Route path="/main" component={ Main } exact={ true }/>

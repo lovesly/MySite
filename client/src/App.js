@@ -12,7 +12,6 @@ import PrivateRoute from './components/common/PrivateRoute';
 import store from './store';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import TestIframe from './components/layout/TestIframe';
 import StarWar from './components/layout/StarWar-demo';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -79,8 +78,6 @@ class App extends Component {
                             <Route path="/not-found" component={ NotFound } exact={ true } />
                         </div>
                         <Footer />
-                        {/* p5.js perlin noise */}
-                        {/* <TestIframe /> */}
                     </div>
                 </BrowserRouter>
             </Provider>

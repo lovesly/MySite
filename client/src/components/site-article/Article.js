@@ -15,9 +15,13 @@ class Article extends Component {
     }
     
     render() {
-        const sec1 = { title: 'Unique Style', content: 'some text' };
+        const sec = {
+            cheat: { title: 'Youtube', content: '关爱生命， 远离IE' },
+            Youtube: { title: '油管观察员', content: '潜伏在 Youtube, Quora 评论区，定点清除有价值目标' },
+            Lenovo: { title: 'Lenovo', content: '事不过三， 联想已经坑了哥们儿两次， 我是不会再上当的' },
+        };
         const { article, loading } = this.props.articles;
-        let articleItem;
+        let articleItem, mode;
         if (article === null || loading) {
             articleItem = <FileLoader />;
         } else {
@@ -26,6 +30,7 @@ class Article extends Component {
                 articleItem = article.content.split('\n\n').map(function(el, index) {
                     return <p key={ index }>{ el }</p>;
                 });
+                mode = article.title;
             } else {
                 articleItem = <h4>No profiles found</h4>;
             }
@@ -33,7 +38,7 @@ class Article extends Component {
         return (
             <article id="" className="site-article">
                 <Link to='/main'>Back to Main</Link>
-                <SectionIntro data={ sec1 }/>
+                <SectionIntro data={ sec[mode] }/>
                 <div className="paragraph">
                     { articleItem }
                 </div>
